@@ -9,12 +9,17 @@ import Search from './pages/search/Search';
 
 //Styles
 import './App.css';
+import ThemeSelector from './components/ThemeSelector';
+import { useTheme } from './hooks/useTheme';
 
 function App() {
+const { mode } = useTheme()
+
   return (
-    <div className="App">
+    <div className={`App ${mode}`}>
       <BrowserRouter>
         <Navbar />
+        <ThemeSelector />
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/create' element={<Create />}></Route>
